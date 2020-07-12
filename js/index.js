@@ -47,6 +47,7 @@ $(document).ready(function () {
     $(".submit").on("click", function (e) {
         e.preventDefault();
         var $form = $("#" + $(this).data("form"));
+        console.log(getFormData($form));
         $.ajax({
             url: API_URL,
             data: getFormData($form),
