@@ -43,7 +43,7 @@ $(document).ready(function () {
         e.preventDefault();
         var $form = $("#" + $(this).data("form")).serialize();
         $.ajax({
-            url: "",
+            url: API_URL,
             data: getFormData($form),
             method: "POST",
             success: function () {
