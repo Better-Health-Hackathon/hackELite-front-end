@@ -1,4 +1,5 @@
 $(document).ready(function () {
+    var providers;
     function success(pos) {
         $.get("https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=" + pos.coords.latitude + "&longitude=" + pos.coords.longitude + "&localityLanguage=en", function (data) {
             //console.log(data);
@@ -22,16 +23,13 @@ $(document).ready(function () {
     }
     $(".modal-btn").on("click", function(e) {
         e.preventDefault();
-        $("#" + $(this).data("form") + "-container").hide();
-
-        $("#" + $(this).data("form") + "-success").show();
-
-
         if($(this)[0].id === "customer") {
             $("#modalproviderLabel").text("Register yourself to avail a service.");
+            providers = "no";
         }
         else {
             $("#modalproviderLabel").text("Register yourself to provide a service.");
+            providers="yes";
         }
     });
     function getFormData($form) {
@@ -41,7 +39,7 @@ $(document).ready(function () {
         $.map(unindexed_array, function (n, i) {
             indexed_array[n['name']] = n['value'];
         });
-
+        indexed_array.providers = providers;
         return indexed_array;
     }
     $(".submit").on("click", function (e) {
@@ -53,11 +51,15 @@ $(document).ready(function () {
             dataType: "json",
             data: JSON.stringify(getFormData($form)),
             contentType: "application/json; charset=utf-8",
-            method: "POST",
+            method: "GET",
             success: function () {
-                $("#" + $(this).data("form") + "-container").hide();
-
-                $("#" + $(this).data("form") + "-success").show();
+               $(".alert").show();
+               $("#frm-provider").trigger("reset");
+               $("#modalprovider").hide();
+               $(".modal-backdrop").hide();
+               setTimeout(function() {
+                $(".alert").hide();
+               }, 2000)
             }
         })
     });
