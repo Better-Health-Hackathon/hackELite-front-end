@@ -68,15 +68,15 @@
     <div class="overlay"></div>
     <div class="container">
       <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
-        <div class="col-md-6 ftco-animate text-center">
+        <div class="col-md-12 ftco-animate text-center">
           <h1 class="mb-4">Stay Safe and Informed</h1>
           <p>Stay At Home Be Safe</p>
           <p style="font-weight: 400;">New terms, like COVID-19, social distancing, flatten the curve, lockdown … these
             New vocabulary has been sure, helped us stay safe and informed.</p>
 
         </div>
-        <div class="col-md-6 ftco-animate text-center fadeInUp ftco-animated" style="font-weight: 500;">
-          <img src="./images/covidtrend.png" style="width: 480px;" />
+        <div class="col-md-8 ftco-animate text-center fadeInUp ftco-animated" style="font-weight: 500;">
+          <iframe src="https://www.covid19india.org/state/UT" width="100%" height="400px" scrolling="no" style="background:#fff; overflow-x: hidden; overflow-y: hidden;"></iframe>
         </div>
       </div>
     </div>
@@ -117,7 +117,7 @@
               <p>We are one of the Best Home Salon Services, which brings Best salon Professionals
 
                 at your home and provides all services at home.</p>
-              
+
               <ul>
                 <li><span class="ion-ios-checkmark"></span>Hair Cutting</li>
                 <li><span class="ion-ios-checkmark"></span>Beard Shaving</li>
@@ -431,7 +431,7 @@
             </div>
             <div class="form-group">
               <label for="appointment_email" class="text-black">Email</label>
-              <input type="text" class="form-control" id="appointment_email">
+              <input type="text" class="form-control" id="appointment_email" email>
             </div>
             <div class="form-group">
               <label for="appointment_email" class="text-black">Phone Number</label>
@@ -472,22 +472,53 @@
           </button>
         </div>
         <div class="modal-body">
-          <form action="#">
+          <form id="provider">
             <div class="form-group">
-              <label for="provider_name" class="text-black">Full Name</label>
-              <input type="text" class="form-control" id="provider_name">
+              <label for="provider_name" class="text-black">First name</label>
+              <input type="text" class="form-control" id="firstName" name="firstName" required>
             </div>
+            <div class="form-group">
+              <label for="provider_name" class="text-black">Last name</label>
+              <input type="text" class="form-control" id="lastName" name="lastName" required>
+            </div>
+
             <div class="form-group">
               <label for="provider_email" class="text-black">Email</label>
-              <input type="text" class="form-control" id="provider_email">
+              <input type="email" class="form-control" id="provider_email" name="email" required>
             </div>
             <div class="form-group">
-              <label for="provider_email" class="text-black">Phone Number</label>
-              <input type="text" class="form-control" id="provider_email">
+              <label for="provider_email" class="text-black">Mobile Number</label>
+              <input type="text" class="form-control" id="provider_email" name="mobile" required>
+            </div>
+            <div class="form-group">
+              <label for="provider_email" class="text-black">Postal Code</label>
+              <input type="text" class="form-control zipCode" name="zipCode" id="providerZipCode" required>
+              <label for="provider_email" class="text-black error" style="color:red; display: none;"></label>
+            </div>
+            <div class="address-form-providerZipCode" style="display: none;">
+              <div class="form-group">
+                <label for="provider_email" class="text-black">Street Address</label>
+                <input type="text" class="form-control" id="provider_email" name="address1" required>
+              </div>
+              <div class="form-group" style="
+                    width: 42%;
+                    margin-right: 20px;
+                    display: inline-block;
+                ">
+                <label for="provider_email" class="text-black">City</label>
+                <input type="text" class="form-control city" id="provider_email" name="city" required readonly disabled>
+              </div>
+              <div class="form-group" style="
+                    width: 50%;
+                    display: inline-block;
+                ">
+                <label for="provider_email" class="text-black">State</label>
+                <input type="text" class="form-control state" id="provider_email" name="state" required readonly disabled>
+              </div>
             </div>
             <div class="form-group">
               <label for="provider_date" class="text-black">What service type you provide ?</label>
-              <select>
+              <select name="services">
 
                 <option>Physiotherapy</option>
 
@@ -527,6 +558,7 @@
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
   <script src="js/google-map.js"></script>
   <script src="js/main.js"></script>
+  <script src="js/index.js"></script>
 
 </body>
 

@@ -1600,6 +1600,7 @@ pre {
     opacity: 1; }
   .form-control:disabled, .form-control[readonly] {
     background-color: #e9ecef;
+    background-color: #f4f4f4 !important;
     opacity: 1; }
 
 select.form-control:not([size]):not([multiple]) {
@@ -8036,7 +8037,7 @@ h1, h2, h3, h4, h5,
         display: none; } }
 
 .form-control {
-  height: 52px !important;
+  height: 40px !important;
   background: #fff !important;
   color: #39345a !important;
   font-size: 18px;
