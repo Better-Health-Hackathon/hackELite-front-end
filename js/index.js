@@ -50,6 +50,7 @@ $(document).ready(function () {
         $.ajax({
             url: API_URL,
             data: getFormData($form),
+            contentType: "application/json; charset=utf-8",
             method: "POST",
             success: function () {
                 $("#" + $(this).data("form") + "-container").hide();
