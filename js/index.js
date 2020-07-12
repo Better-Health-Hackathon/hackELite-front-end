@@ -22,6 +22,11 @@ $(document).ready(function () {
     }
     $(".modal-btn").on("click", function(e) {
         e.preventDefault();
+        $("#" + $(this).data("form") + "-container").hide();
+
+        $("#" + $(this).data("form") + "-success").show();
+
+
         if($(this)[0].id === "customer") {
             $("#modalproviderLabel").text("Register yourself to avail a service.");
         }
@@ -41,7 +46,7 @@ $(document).ready(function () {
     }
     $(".submit").on("click", function (e) {
         e.preventDefault();
-        var $form = $("#" + $(this).data("form")).serialize();
+        var $form = $("#" + $(this).data("form"));
         $.ajax({
             url: API_URL,
             data: getFormData($form),
