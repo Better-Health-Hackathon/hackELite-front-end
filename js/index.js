@@ -50,7 +50,8 @@ $(document).ready(function () {
         console.log(getFormData($form));
         $.ajax({
             url: API_URL,
-            data: getFormData($form),
+            dataType: "json",
+            data: JSON.stringify(getFormData($form)),
             contentType: "application/json; charset=utf-8",
             method: "POST",
             success: function () {
