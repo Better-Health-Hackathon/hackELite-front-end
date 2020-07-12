@@ -54,10 +54,10 @@
           <li class="nav-item"><a href="doctor.html" class="nav-link">Doctors</a></li>
           <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
           <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li> -->
-          <li class="nav-item cta" style="margin-right: 5px;"><a href="contact.html" class="nav-link"
-              data-toggle="modal" data-target="#modalAppointment"><span>Get a service</span></a></li>
-          <li class="nav-item cta"><a href="contact.html" class="nav-link" data-toggle="modal"
-              data-target="#modalprovider"><span>Provide a service</span></a></li>
+          <li class="nav-item cta" style="margin-right: 5px;"><a href="contact.html" id="customer" class="nav-link modal-btn"
+              data-toggle="modal" data-target="#modalprovider"><span>Send Enquiry</span></a></li>
+          <li class="nav-item cta"><a href="contact.html" class="nav-link modal-btn" data-toggle="modal"
+              data-target="#modalprovider"><span>Provider Register</span></a></li>
         </ul>
       </div>
     </div>
@@ -76,7 +76,7 @@
 
         </div>
         <div class="col-md-8 ftco-animate text-center fadeInUp ftco-animated" style="font-weight: 500;">
-          <iframe src="https://www.covid19india.org/state/UT" width="100%" height="400px" scrolling="no" style="background:#fff; overflow-x: hidden; overflow-y: hidden;"></iframe>
+          <iframe  id="covid-status" width="100%" height="400px" scrolling="no" style="display:none; border:none; border-radius: 10px;background:#fff; overflow-x: hidden; overflow-y: hidden;"></iframe>
         </div>
       </div>
     </div>
@@ -413,7 +413,7 @@
         stroke="#F96D00" /></svg></div>
 
   <!-- Modal -->
-  <div class="modal fade" id="modalAppointment" tabindex="-1" role="dialog" aria-labelledby="modalAppointmentLabel"
+  <!-- <div class="modal fade" id="modalAppointment" tabindex="-1" role="dialog" aria-labelledby="modalAppointmentLabel"
     aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -458,13 +458,14 @@
 
       </div>
     </div>
-  </div>
+  </div> -->
 
   <!-- Modal -->
   <div class="modal fade" id="modalprovider" tabindex="-1" role="dialog" aria-labelledby="modalproviderLabel"
     aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
+        <div id="frm-provider-container">
         <div class="modal-header">
           <h5 class="modal-title" id="modalproviderLabel">Register yourself to provide a service</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -472,7 +473,7 @@
           </button>
         </div>
         <div class="modal-body">
-          <form id="provider">
+          <form id="frm-provider">
             <div class="form-group">
               <label for="provider_name" class="text-black">First name</label>
               <input type="text" class="form-control" id="firstName" name="firstName" required>
@@ -498,7 +499,7 @@
             <div class="address-form-providerZipCode" style="display: none;">
               <div class="form-group">
                 <label for="provider_email" class="text-black">Street Address</label>
-                <input type="text" class="form-control" id="provider_email" name="address1" required>
+                <input type="text" class="form-control address1" name="address1" required>
               </div>
               <div class="form-group" style="
                     width: 42%;
@@ -517,7 +518,7 @@
               </div>
             </div>
             <div class="form-group">
-              <label for="provider_date" class="text-black">What service type you provide ?</label>
+              <label for="provider_date" class="text-black">Service type</label>
               <select name="services">
 
                 <option>Physiotherapy</option>
@@ -530,11 +531,16 @@
 
 
             <div class="form-group">
-              <input type="submit" value="Register" class="btn btn-primary">
+              <input type="submit" data-form="frm-provider" value="Register" class="btn btn-primary submit">
             </div>
+            
+            
           </form>
         </div>
 
+      </div>
+      <div class="alert alert-success" style="display: none;" id="frm-provider-success">
+        <strong> You are registered Successfully</strong>
       </div>
     </div>
   </div>

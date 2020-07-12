@@ -4,6 +4,17 @@
  * Copyright 2011-2018 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
+
+ 
+body {
+  scrollbar-3dlight-color: #000000;
+  scrollbar-arrow-color: #ffffff;
+  scrollbar-darkshadow-color: #000000;
+  scrollbar-face-color: #000000;
+  scrollbar-highlight-color: #ffffff;
+  scrollbar-shadow-color: #ffffff;
+  scrollbar-track-color: #000000;
+}
 :root {
   --blue: #007bff;
   --indigo: #6610f2;
