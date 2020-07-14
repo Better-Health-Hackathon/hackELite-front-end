@@ -26,10 +26,16 @@ $(document).ready(function () {
         if($(this)[0].id === "customer") {
             $("#modalproviderLabel").text("Register yourself to avail a service.");
             providers = "no";
+            $(".btn-primary").val("Send Enquiry");
+            $(".alert").text("Your enquiry has been sent successfully, you will get a call back soon.");
         }
         else {
             $("#modalproviderLabel").text("Register yourself to provide a service.");
             providers="yes";
+            
+            $(".btn-primary").val("Register");
+            
+            $(".alert").text("You are registered Successfully.");
         }
     });
     function getFormData($form) {
@@ -48,10 +54,10 @@ $(document).ready(function () {
         console.log(getFormData($form));
         $.ajax({
             url: API_URL,
-            dataType: "json",
+            // dataType: "json",
             data: JSON.stringify(getFormData($form)),
             contentType: "application/json; charset=utf-8",
-            method: "GET",
+            method: "POST",
             success: function () {
                $(".alert").show();
                $("#frm-provider").trigger("reset");
