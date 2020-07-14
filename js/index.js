@@ -23,6 +23,8 @@ $(document).ready(function () {
     }
     $(".modal-btn").on("click", function(e) {
         e.preventDefault();
+        
+        $("#error-zip-code").hide();
         if($(this)[0].id === "customer") {
             $("#modalproviderLabel").text("Register yourself to avail a service.");
             providers = "no";
@@ -80,6 +82,9 @@ $(document).ready(function () {
         let that = $(this);
         $.get("https://api.postalpincode.in/pincode/" + $(this).val(), function (data) {
             console.log(data);
+            if(!data[0].PostOffice[0].State) {
+                $("#error-zip-code").show();
+            }
             $(".state").val(data[0].PostOffice[0].State);
             $(".city").val(data[0].PostOffice[0].District);
             $(".address-form-" + that[0].id).show();
