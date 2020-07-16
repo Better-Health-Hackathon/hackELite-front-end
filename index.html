@@ -520,13 +520,13 @@
             </div>
             <div class="form-group">
               <label for="provider_date" class="text-black">Service type</label>
-              <select name="services">
+              <select name="services" required>
+                <option value="">---Select One---</option>
+                <option value="Physiotherapy">Physiotherapy</option>
 
-                <option>Physiotherapy</option>
-
-                <option>Salon service</option>
-                <option>Home care service for senior citizens</option>
-                <option>Funeral Services</option>
+                <option value="Salon service">Salon service</option>
+                <option value="Home care service for senior citizens">Home care service for senior citizens</option>
+                <option value="Funeral Services">Funeral Services</option>
               </select>
             </div>
 
