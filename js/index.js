@@ -50,8 +50,8 @@ $(document).ready(function () {
         indexed_array.providers = providers;
         return indexed_array;
     }
-    $(".submit").on("click", function (e) {
-        e.preventDefault();
+    $("#frm-provider").on("submit", function (e) {
+        // e.preventDefault();
         var $form = $("#" + $(this).data("form"));
         console.log(getFormData($form));
         $.ajax({
